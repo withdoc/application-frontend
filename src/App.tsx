@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+// import styled from 'styled-components';
+import * as styled from './styles';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <styled.Container>
+      <styled.MainBox>
+        <styled.MainTitle>모든 문서가 안전하게 보관되는 곳👮🏻‍♂</styled.MainTitle>
+        <styled.SubTitle>document management system</styled.SubTitle>
+        <styled.ButtonBox>
+          <styled.SigninBtn>
+            <span>로그인</span>
+          </styled.SigninBtn>
+          <styled.SignupBtn>
+            <span>회원가입</span>
+          </styled.SignupBtn>
+        </styled.ButtonBox>
+      </styled.MainBox>
+    </styled.Container>
   );
 }
 
