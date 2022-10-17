@@ -20,7 +20,7 @@ export const mainContainer = styled.div`
 `;
 
 export const titleContainer = styled.div`
-  width: 100%;
+  width: 1000px;
   height: fit-content;
 `;
 
@@ -51,7 +51,7 @@ export const subTitle = styled.div`
   opacity: 0.44;
   display: flex;
   flex-direction: column;
-  margin-left: 15%;
+  //margin-left: 15%;
   text-align: left;
 `;
 
@@ -70,6 +70,6 @@ export const btnStart = styled.button`
   text-align: center;
   color: #FFFFFF;
   
-  margin-top: 100px;
+  margin-top: 10%;
   cursor: pointer;
 `;
