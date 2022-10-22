@@ -20,7 +20,7 @@ export const mainContainer = styled.div`
 `;
 
 export const titleContainer = styled.div`
-  width: 1000px;
+  width: 70%;
   height: fit-content;
 `;
 
@@ -44,7 +44,7 @@ export const subTitle = styled.div`
   font-family: 'Poppins';
   line-height: 80px;
   position: relative;
-  margin-top: -250px;
+  margin-top: -25%;
   letter-spacing: -0.0111111em;
   color: #4E535E;
   mix-blend-mode: normal;
