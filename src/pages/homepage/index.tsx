@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as S from "./style"
 import { useNavigate } from 'react-router-dom';
 import profile from "./img/bubbleProfile.svg";
 
+
+
+/*const handleBubble = () => {
+    if (window.scrollY > 0) {
+
+    }
+}*/
 const ShowBubble = () => {
+
     return (
         <>
             <S.questionContainer>
@@ -43,7 +51,7 @@ function HomeComponent() {
                     <S.subTitle>{`the new \n document \n management \n system`}</S.subTitle>
                 </S.titleContainer>
                 <S.btnStart onClick={navigateToPurchase}>get started 🚀</S.btnStart>
-                <ShowBubble /> 
+                <ShowBubble/> 
             </S.mainContainer>
         </>
     )
