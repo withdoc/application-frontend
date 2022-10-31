@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function HomeComponent() {
     const navigate = useNavigate();
 
-    const navigateToPurchase = () => {
+    const navigateToAnotherPage = () => {
         navigate("/startpage");
     };
     
@@ -21,7 +21,7 @@ function HomeComponent() {
                     </S.mainTitle>
                     <S.subTitle>{`the new \n document \n management \n system`}</S.subTitle>
                 </S.titleContainer>
-                <S.btnStart onClick={navigateToPurchase}>get started 🚀</S.btnStart>
+                <S.btnStart onClick={navigateToAnotherPage}>get started 🚀</S.btnStart>
             </S.mainContainer>
         </>
     )

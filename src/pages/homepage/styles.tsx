@@ -20,12 +20,13 @@ export const mainContainer = styled.div`
 `;
 
 export const titleContainer = styled.div`
-  width: 1000px;
+  width: 1350px;
   height: fit-content;
+  margin-top: 100px;
 `;
 
 export const mainTitle = styled.div`
-  font-size: 220px;
+  font-size: 300px;
   font-weight: 650;
   font-family: 'Poppins';
   line-height: 420px;
@@ -40,9 +41,9 @@ export const mainTitle = styled.div`
 export const subTitle = styled.div`
   white-space: pre-line;
   font-weight: 650;
-  font-size: 70px;
+  font-size: 100px;
   font-family: 'Poppins';
-  line-height: 80px;
+  line-height: 100px;
   position: relative;
   margin-top: -250px;
   letter-spacing: -0.0111111em;
@@ -56,8 +57,8 @@ export const subTitle = styled.div`
 `;
 
 export const btnStart = styled.button`
-  width: 340px;
-  height: 71px;
+  width: 450px;
+  height: 85px;
   background: rgba(16, 33, 65, 0.247934);
   backdrop-filter: blur(11.5318px);
   border-radius: 100px;
@@ -65,7 +66,7 @@ export const btnStart = styled.button`
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 30px;
   line-height: 26px;
   text-align: center;
   color: #FFFFFF;
