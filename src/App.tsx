@@ -4,7 +4,7 @@ import './App.css';
 import HomePage from './pages/homepage';
 import Startpage from './pages/startpage';
 import Mainpage from './pages/mainpage';
-
+import SignUpPage from './pages/signupPage';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -21,6 +21,9 @@ function App() {
 
         {/* mainpage */}
         <Route path='/mainpage' element={<Mainpage />} />
+
+        {/* mainpage */}
+        <Route path='/signUpPage' element={<SignUpPage />} />
 
       </Routes>
     </BrowserRouter>
