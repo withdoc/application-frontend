@@ -23,6 +23,14 @@ function LoginComponent() {
                     <S.emailInput type="email" value={email} placeholder="Email" onChange={onEmailHandler} />
                     <S.passwordInput type="password" value={password} placeholder="Password" onChange={onPasswordHandler}/>
                 </S.inputContatiner>
+                <S.btnContainer>
+                    <S.btnFindEmail> Find Email </S.btnFindEmail>
+                    <S.divisionLine>|</S.divisionLine>
+                    <S.btnFindPassword> Find Password </S.btnFindPassword>
+                    <S.divisionLine>|</S.divisionLine>
+                    <S.btnSignUp> Sign up </S.btnSignUp>
+                </S.btnContainer>
+                <S.btnSignIn>Sign in</S.btnSignIn>
             </S.mainContent>
         </S.mainContainer>
         </>

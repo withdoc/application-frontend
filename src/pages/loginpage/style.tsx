@@ -16,6 +16,10 @@ export const mainContent = styled.div`
     background: #FFFFFF;
     box-shadow: 0px 4px 40px #8CA4D8;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `
 
 export const signinTitle = styled.div`
@@ -25,21 +29,20 @@ export const signinTitle = styled.div`
     line-height: 96px;
     text-align: center;
     color: rgba(20, 36, 59, 0.35);
-    margin-top: 5%;
 `
 
 export const inputContatiner = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 60%;
+    height: fit-content;
     align-items: center;
     margin-top: 5%;
     
 `
 export const emailInput = styled.input`
     width: 45%;
-    height: 11%;
+    height: 45px;
     border: 1px solid #D8D8D8;
     border-radius: 10px;
 
@@ -63,7 +66,7 @@ export const emailInput = styled.input`
 
 export const passwordInput = styled.input`
     width: 45%;
-    height: 11%;
+    height: 45px;
     border: 1px solid #D8D8D8;
     border-radius: 10px;
 
@@ -84,3 +87,98 @@ export const passwordInput = styled.input`
     }
     margin-top: 2%;
 `
+
+export const btnContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3%;
+`
+
+export const btnFindEmail = styled.button`
+    background: transparent;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.0166667em;
+
+    color: #5F6776;
+    opacity: 0.66;
+    cursor: pointer;
+`;
+
+export const btnFindPassword = styled.button`
+    background: transparent;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.0166667em;
+
+    color: #5F6776;
+    opacity: 0.66;
+    cursor: pointer;
+`;
+
+export const btnSignUp = styled.button`
+    background: transparent;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: -0.0166667em;
+
+    color: #5F6776;
+    opacity: 0.66;
+    cursor: pointer;
+`;
+
+export const divisionLine = styled.div`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.0166667em;
+    color: #5F6776;
+    opacity: 0.66;
+    margin: 0 2%;
+`
+
+export const btnSignIn = styled.button`
+    width: 44%;
+    height: 7%;
+    background: rgba(16, 33, 65, 0.6);
+    backdrop-filter: blur(11.5318px);
+    border: none;
+    border-radius: 100px;
+    margin-top: 6%;
+    margin-bottom: 5%;
+    cursor: pointer;
+
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 26px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0px 5px 10px rgba(73, 90, 117, 0.222373);
+`;
