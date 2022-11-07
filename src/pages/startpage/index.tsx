@@ -12,10 +12,11 @@ function Startpage() {
 
   const navigateToSignUpPage = () => {
     navigate("/signUpPage");
-    
+  };
+
   const navigateToLoginPage = () => {
     navigate("/loginpage");
-  }
+  };
 
   return (
     <styled.Container>
