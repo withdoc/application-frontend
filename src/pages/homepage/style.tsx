@@ -76,7 +76,7 @@ export const questionContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 90%;
-  margin-top: 13%;
+  margin-top: 17%;
   align-items: center;
 `
 
