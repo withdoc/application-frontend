@@ -3,6 +3,8 @@ import searchicon from "../../imgs/searchicon.png";
 import settingicon from "../../imgs/settingicon.png";
 import addbutton from "../../imgs/addbtn.png";
 import closebutton from "../../imgs/closebutton.png";
+import sidebarprofileimg from "../../imgs/sidebarprofileimg.png";
+
 
 export const Container = styled.div`
     display: flex;
@@ -140,16 +142,141 @@ export const ModalContainer = styled.div`
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     // justify-content: center;
 `;
 
 export const CloseButton = styled.img.attrs({
     src: closebutton,
 })`
-    width; 40px;
+    width: 40px;
     height: 40px;
     margin-top: 20px;
-    margin-left: 260px;
+    margin-left: 280px;
     cursor: pointer;
+`;
+
+export const SideBarProfile = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+        font-family: 'Poppins-Bold';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        color: rgba(20, 36, 59, 0.7);
+        margin-top: 12px;
+    }
+`;
+
+export const SideBarProfileImg = styled.img.attrs({
+    src: sidebarprofileimg,
+})`
+    width: 120px;
+    height: 120px;
+    margin-top: 11px;
+`;
+
+export const SideBarPersonalInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 46px;
+    margin-left: 22px;
+
+    > span {
+
+        &:nth-child(1){
+            font-family: 'Poppins-Bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            color: rgba(20, 36, 59, 0.5);
+        }
+
+        &:nth-child(2){
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: rgba(20, 36, 59, 0.35);
+            margin-top: 11px;
+        }
+
+        &:nth-child(3){
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: rgba(20, 36, 59, 0.35);
+            margin-top: 8px;
+        }
+    }
+`;
+
+export const SideBarHrLine = styled.div`
+    width: 294px;
+    height: 0;
+    border: 0.5px solid rgba(20, 36, 59, 0.3);
+    margin-top: 31px;
+    margin-left: 22px;
+`;
+
+export const SideBarSupport = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 31px;
+    margin-left: 22px;
+
+    > span {
+
+        &:nth-child(1){
+            font-family: 'Poppins-Bold';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            color: rgba(20, 36, 59, 0.5);
+        }
+
+        &:nth-child(2){
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: rgba(20, 36, 59, 0.35);
+            margin-top: 11px;
+        }
+
+        &:nth-child(3){
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: rgba(20, 36, 59, 0.35);
+            margin-top: 8px;
+        }
+
+        &:nth-child(4){
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            color: rgba(20, 36, 59, 0.35);
+            margin-top: 8px;
+        }
+    }
+`;
+
+export const Copyright = styled.div`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #5F6776;
+    opacity: 0.66;
+
+    margin-top: 270px;
+    margin-left: 45px;
 `;

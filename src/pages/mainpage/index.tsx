@@ -19,6 +19,23 @@ function Mainpage() {
             <styled.Modal>
                 <styled.ModalContainer>
                     <styled.CloseButton onClick={() => setIsModal(false)} />
+                    <styled.SideBarProfile>
+                        <styled.SideBarProfileImg />
+                        <span>Username</span>
+                    </styled.SideBarProfile>
+                    <styled.SideBarPersonalInfo>
+                        <span>개인 정보 관리</span>
+                        <span>회원 정보</span>
+                        <span>보관중인 문서</span>
+                    </styled.SideBarPersonalInfo>
+                    <styled.SideBarHrLine />
+                    <styled.SideBarSupport>
+                        <span>지원</span>
+                        <span>도움말</span>
+                        <span>개인정보 약관 동의</span>
+                        <span>회원 탈퇴</span>
+                    </styled.SideBarSupport>
+                    <styled.Copyright>Copyright © 2022 DOC. All rights reserved.</styled.Copyright>
                 </styled.ModalContainer>
             </styled.Modal>
         )
