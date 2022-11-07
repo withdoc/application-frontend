@@ -10,6 +10,9 @@ function Startpage() {
     navigate("/mainpage");
   };
 
+  const navigateToSignUpPage = () => {
+    navigate("/signUpPage");
+    
   const navigateToLoginPage = () => {
     navigate("/loginpage");
   }
@@ -23,7 +26,7 @@ function Startpage() {
           <styled.SigninBtn onClick={navigateToLoginPage}>
             <span>로그인</span>
           </styled.SigninBtn>
-          <styled.SignupBtn>
+          <styled.SignupBtn onClick={navigateToSignUpPage}>
             <span>회원가입</span>
           </styled.SignupBtn>
         </styled.ButtonBox>
