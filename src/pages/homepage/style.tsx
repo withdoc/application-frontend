@@ -35,6 +35,7 @@ export const mainTitle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 130px;
 `;
 
 export const subTitle = styled.div`

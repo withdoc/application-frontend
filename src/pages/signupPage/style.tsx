@@ -25,7 +25,7 @@ export const mainContent = styled.div`
 `
 
 export const signUpTitle = styled.div`
-    font-family: 'Poppins';
+    font-family: 'Poppins-Bold';
     font-weight: 700;
     font-size: 55px;
     line-height: 96px;
