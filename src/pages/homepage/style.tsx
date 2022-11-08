@@ -95,6 +95,13 @@ export const profileImg = styled.img`
   align-items: flex-start;
   margin-right: 2%;
 `
+export const bubbleBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
 
 export const speechBubble = styled.div<{direction: string}>`
   width: ${(props) =>
