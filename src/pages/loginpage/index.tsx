@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import * as S from "./style"
 
 function LoginComponent() {
@@ -11,6 +12,12 @@ function LoginComponent() {
     const onPasswordHandler = (e: any) => {
         setPassword(e.target.value);
     }
+
+    const navigate = useNavigate();
+
+    const navigateToAnotherPage = () => {
+        navigate("/mainpage");
+    };
 
     return (
         <>
@@ -30,7 +37,7 @@ function LoginComponent() {
                     <S.divisionLine>|</S.divisionLine>
                     <S.btnSignUp> Sign up </S.btnSignUp>
                 </S.btnContainer>
-                <S.btnSignIn>Sign in</S.btnSignIn>
+                <S.btnSignIn onClick={navigateToAnotherPage}>Sign in</S.btnSignIn>
             </S.mainContent>
         </S.mainContainer>
         </>
