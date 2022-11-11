@@ -6,19 +6,41 @@ import DocumentCard from '../../components/DocumentCard';
 
 
 function Mainpage() {
-    const [isModal, setIsModal] = useState(false);
+    const [isSidebarModal, setisSidebarModal] = useState(false);
+    const [isWithdrawalModal, setisWithdrawalModal] = useState(false);
 
 
-    const showModal = () => {
-        setIsModal(true);
+    const showSidebarModal = () => {
+        setisSidebarModal(true);
     };
 
+    const showWithdrawalModal = () => {
+        setisWithdrawalModal(true);
+    };
 
-    const Modal = () => {
+    const WithdrawalModal = () => {
+        return(
+            <styled.Modal>
+                <styled.WithdrawalModalContainer>
+                    <styled.WithdrawalModalCloseBtn onClick={() => setisWithdrawalModal(false)} />
+                    <styled.WithdrawalModalTitle>회원 탈퇴</styled.WithdrawalModalTitle>
+                    <styled.WithdrawalModalText>
+                        <span>회원 탈퇴시 회원 정보, 보관중인 문서는 모두 삭제됩니다.<br />정말 탈퇴하시겠습니까?</span>
+                    </styled.WithdrawalModalText>
+                    <styled.WithdrawalModalButtons>
+                        <styled.WithdrawalModalCancel onClick={() => setisWithdrawalModal(false)}>취소</styled.WithdrawalModalCancel>
+                        <styled.WithdrawalModalWithdraw onClick={() => setisWithdrawalModal(false)}>탈퇴하기</styled.WithdrawalModalWithdraw>
+                    </styled.WithdrawalModalButtons>
+                </styled.WithdrawalModalContainer>
+            </styled.Modal>
+        )
+    }
+
+    const SidebarModal = () => {
         return (
             <styled.Modal>
-                <styled.ModalContainer>
-                    <styled.CloseButton onClick={() => setIsModal(false)} />
+                <styled.SidebarModalContainer>
+                    <styled.CloseButton onClick={() => setisSidebarModal(false)} />
                     <styled.SideBarProfile>
                         <styled.SideBarProfileImg />
                         <span>Username</span>
@@ -33,17 +55,18 @@ function Mainpage() {
                         <span>지원</span>
                         <span>도움말</span>
                         <span>개인정보 약관 동의</span>
-                        <span>회원 탈퇴</span>
+                        <span onClick={() => {showWithdrawalModal(); setisSidebarModal(false);}}>회원 탈퇴</span>
                     </styled.SideBarSupport>
                     <styled.Copyright>Copyright © 2022 DOC. All rights reserved.</styled.Copyright>
-                </styled.ModalContainer>
+                </styled.SidebarModalContainer>
             </styled.Modal>
         )
     }
 
     return (
         <styled.Container>
-            {isModal && <Modal />}
+            {isSidebarModal && <SidebarModal />}
+            {isWithdrawalModal && <WithdrawalModal />}
 
             <styled.MainBox>
                 <styled.Header>
@@ -51,7 +74,7 @@ function Mainpage() {
                     <styled.SearchInputBox>
                         <span>Search for anything you want</span>
                     </styled.SearchInputBox>
-                    <styled.SettingIcon onClick={showModal} />
+                    <styled.SettingIcon onClick={showSidebarModal} />
                 </styled.Header>
                 <styled.PageTitle>document management system</styled.PageTitle>
                 <styled.DocumentList>
