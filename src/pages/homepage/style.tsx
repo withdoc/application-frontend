@@ -35,7 +35,7 @@ export const mainTitle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 130px;
+  margin-top: 5%;
 `;
 
 export const subTitle = styled.div`
@@ -94,6 +94,13 @@ export const profileImg = styled.img`
   height: 120px;
   align-items: flex-start;
   margin-right: 2%;
+`
+export const bubbleBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `
 
 export const speechBubble = styled.div<{direction: string}>`
