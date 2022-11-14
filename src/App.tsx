@@ -6,6 +6,7 @@ import Startpage from './pages/startpage';
 import Mainpage from './pages/mainpage';
 import SignUpPage from './pages/signupPage';
 import LoginPage from "./pages/loginpage";
+import DocumentListPage from './pages/documentListPage';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -29,6 +30,8 @@ function App() {
         {/* loginpage */}
         <Route path='/loginpage' element={<LoginPage />} />
 
+        {/* loginpage */}
+        <Route path='/documentlistpage' element={<DocumentListPage />} />
       </Routes>
     </BrowserRouter>
   );

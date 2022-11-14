@@ -100,24 +100,7 @@ const DocumentListPage = () => {
                     <span>2022.10.06</span>
                     <span>Kookmin Univ.</span>
                 </styled.DocumentBox>
-                <styled.DocumentBox>
-                    <div id='checkbox'></div>
-                    <span>휴학 증명서</span>
-                    <span>2022.10.06</span>
-                    <span>Kookmin Univ.</span>
-                </styled.DocumentBox>
-                <styled.DocumentBox>
-                    <div id='checkbox'></div>
-                    <span>휴학 증명서</span>
-                    <span>2022.10.06</span>
-                    <span>Kookmin Univ.</span>
-                </styled.DocumentBox>
-                <styled.DocumentBox>
-                    <div id='checkbox'></div>
-                    <span>휴학 증명서</span>
-                    <span>2022.10.06</span>
-                    <span>Kookmin Univ.</span>
-                </styled.DocumentBox>
+                
                 
             </styled.MainBox>
         </styled.Container>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as styled from './styles';
+import { useNavigate } from 'react-router';
 
 import DocumentCard from '../../components/DocumentCard';
 
@@ -17,6 +18,12 @@ function Mainpage() {
     const showWithdrawalModal = () => {
         setisWithdrawalModal(true);
     };
+
+    const navigate = useNavigate();
+
+    const navigateToDocumentListPage = () => {
+        navigate("/documentlistpage");
+    }
 
     const WithdrawalModal = () => {
         return(
@@ -48,7 +55,7 @@ function Mainpage() {
                     <styled.SideBarPersonalInfo>
                         <span>개인 정보 관리</span>
                         <span>회원 정보</span>
-                        <span>보관중인 문서</span>
+                        <span onClick={navigateToDocumentListPage}>보관중인 문서</span>
                     </styled.SideBarPersonalInfo>
                     <styled.SideBarHrLine />
                     <styled.SideBarSupport>
