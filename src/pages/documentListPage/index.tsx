@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import * as styled from './style';
 
-import Header from '../../components/Header';
-import Sidebar from '../../components/Sidebar';
-
-
-
 const DocumentListPage = () => {
     const [isSidebarModal, setisSidebarModal] = useState(false);
     const [isWithdrawalModal, setisWithdrawalModal] = useState(false);
