@@ -21,10 +21,13 @@ export const Container = styled.div`
 
 export const MainBox = styled.div`
     width: 1790px;
-    height: 911px;
+    height: fit-content;
+    min-height: 911px;
     left: 65px;
     right: 65px;
     top: 88px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 
     background: #FFFFFF;
     box-shadow: 0px 4px 40px #8CA4D8;
@@ -32,8 +35,7 @@ export const MainBox = styled.div`
 
     display: flex;
     flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
+    // overflow: auto;
 `;
 
 export const Header = styled.div`
@@ -96,16 +98,16 @@ export const DocumentMonth = styled.div`
 
 export const DocumentBox = styled.div`
     width: 1641px;
-    height: 82px;
+    min-height: 82px;
 
     border: 1px solid #D8D8D8;
     border-radius: 20px;
     margin-left: 81px;
+    margin-bottom: 19px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
 
     > div{
         width: 25px;
