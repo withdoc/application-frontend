@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style"
 import { useNavigate } from 'react-router-dom';
 import profile from "./img/bubbleProfile.svg";
-import useScrollFadeIn from "../../hooks/ useScrollFadeIn";
+import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const ShowBubble = () => {
     const questionItem = useScrollFadeIn('up', 1, 0);
