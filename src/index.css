@@ -32,3 +32,10 @@ code {
   font-weight: 500;
   src: url("fonts/Poppins-Medium.ttf");
 }
+
+@font-face {
+  font-family: 'Poppins-Black';
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/Poppins-Medium.ttf");
+}
