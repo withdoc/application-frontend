@@ -7,6 +7,7 @@ import Mainpage from './pages/mainpage';
 import SignUpPage from './pages/signupPage';
 import LoginPage from "./pages/loginpage";
 import DocumentListPage from './pages/documentListPage';
+import DocumentUploadPage from './pages/documentUploadPage';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -30,8 +31,11 @@ function App() {
         {/* loginpage */}
         <Route path='/loginpage' element={<LoginPage />} />
 
-        {/* loginpage */}
+        {/* documentlistpage */}
         <Route path='/documentlistpage' element={<DocumentListPage />} />
+
+        {/* documentuploadpage */}
+        <Route path='/documentuploadpage' element={<DocumentUploadPage />} />
       </Routes>
     </BrowserRouter>
   );
