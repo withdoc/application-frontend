@@ -3,7 +3,13 @@ import * as S from "./style"
 
 function DocumentUploadPage() {
     return (
-        <div></div>
+        <>
+        <S.mainContainer>
+            <S.folderContainer>
+                
+            </S.folderContainer>
+        </S.mainContainer>
+        </>
     )
 }
 
