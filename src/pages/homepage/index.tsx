@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style"
 import { useNavigate } from 'react-router-dom';
-import profile from "./img/bubbleProfile.svg";
+import profile from "../../imgs/bubbleProfile.svg";
 import useScrollFadeIn from "../../hooks/useScrollFadeIn";
 
 const ShowBubble = () => {

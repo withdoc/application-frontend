@@ -24,6 +24,10 @@ function Mainpage() {
     const navigateToDocumentListPage = () => {
         navigate("/documentlistpage");
     }
+    
+    const navigateToDocumentUploadPage = () => {
+        navigate("/documentuploadpage");
+    }
 
     const navigateToPersonalInfoPage = () => {
         navigate("/personalinfopage");
@@ -90,7 +94,7 @@ function Mainpage() {
                 <styled.PageTitle>document management system</styled.PageTitle>
                 <styled.DocumentList>
                     <styled.AddDocument>
-                        <styled.AddButton />
+                        <styled.AddButton onClick={navigateToDocumentUploadPage} />
                     </styled.AddDocument>
                     <DocumentCard />
                     <DocumentCard />
