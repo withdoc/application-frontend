@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import * as styled from './styles';
-import { useNavigate } from 'react-router';
+import * as styled from './style';
+import { useNavigate } from 'react-router-dom';
 
-import DocumentCard from '../../components/DocumentCard';
-
-
-
-function Mainpage() {
+const Sidebar: React.FC<{ onCloseClick?: () => void, onWithdrawalClick?: () => void }> = ({ onCloseClick, onWithdrawalClick }) => {
     const [isSidebarModal, setisSidebarModal] = useState(false);
     const [isWithdrawalModal, setisWithdrawalModal] = useState(false);
-
 
     const showSidebarModal = () => {
         setisSidebarModal(true);
@@ -23,20 +18,16 @@ function Mainpage() {
 
     const navigateToDocumentListPage = () => {
         navigate("/documentlistpage");
-    }
-    
-    const navigateToDocumentUploadPage = () => {
-        navigate("/documentuploadpage");
-    }
+    };
 
     const navigateToPersonalInfoPage = () => {
-        navigate("/personalinfopage");
+        navigate("/personalinfopage")
     }
 
     const WithdrawalModal = () => {
-        return(
-            <styled.Modal>
-                <styled.WithdrawalModalContainer>
+        return (
+            <styled.Modal onClick={() => setisWithdrawalModal(false)}>
+                <styled.WithdrawalModalContainer onClick={(e) => { console.log(1); e.stopPropagation() }}>
                     <styled.WithdrawalModalCloseBtn onClick={() => setisWithdrawalModal(false)} />
                     <styled.WithdrawalModalTitle>회원 탈퇴</styled.WithdrawalModalTitle>
                     <styled.WithdrawalModalText>
@@ -51,11 +42,12 @@ function Mainpage() {
         )
     }
 
-    const SidebarModal = () => {
-        return (
+    return (
+        <>
+            {isWithdrawalModal && <WithdrawalModal />}
             <styled.Modal>
                 <styled.SidebarModalContainer>
-                    <styled.CloseButton onClick={() => setisSidebarModal(false)} />
+                    <styled.CloseButton onClick={onCloseClick} />
                     <styled.SideBarProfile>
                         <styled.SideBarProfileImg />
                         <span>Username</span>
@@ -70,42 +62,14 @@ function Mainpage() {
                         <span>지원</span>
                         <span>도움말</span>
                         <span>개인정보 약관 동의</span>
-                        <span onClick={() => {showWithdrawalModal(); setisSidebarModal(false);}}>회원 탈퇴</span>
+                        <span onClick={onWithdrawalClick}>회원 탈퇴</span>
                     </styled.SideBarSupport>
                     <styled.Copyright>Copyright © 2022 DOC. All rights reserved.</styled.Copyright>
                 </styled.SidebarModalContainer>
             </styled.Modal>
-        )
-    }
-
-    return (
-        <styled.Container>
-            {isSidebarModal && <SidebarModal />}
-            {isWithdrawalModal && <WithdrawalModal />}
-
-            <styled.MainBox>
-                <styled.Header>
-                    <styled.SearchIcon />
-                    <styled.SearchInputBox>
-                        <span>Search for anything you want</span>
-                    </styled.SearchInputBox>
-                    <styled.SettingIcon onClick={showSidebarModal} />
-                </styled.Header>
-                <styled.PageTitle>document management system</styled.PageTitle>
-                <styled.DocumentList>
-                    <styled.AddDocument>
-                        <styled.AddButton onClick={navigateToDocumentUploadPage} />
-                    </styled.AddDocument>
-                    <DocumentCard />
-                    <DocumentCard />
-                    <DocumentCard />
-                    <DocumentCard />
-                    <DocumentCard />
-                </styled.DocumentList>
-            </styled.MainBox>
-        </styled.Container>
-    );
+        </>
+    )
 }
 
-export default Mainpage;
 
+export default Sidebar;
