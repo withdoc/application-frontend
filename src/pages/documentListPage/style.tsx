@@ -35,7 +35,7 @@ export const MainBox = styled.div`
 
     display: flex;
     flex-direction: column;
-    // overflow: auto;
+    overflow: auto;
 `;
 
 export const Header = styled.div`
