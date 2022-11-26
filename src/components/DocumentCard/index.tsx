@@ -1,9 +1,15 @@
 import React from 'react';
 import * as styled from './style';
+import { useNavigate } from 'react-router';
 
 function DocumentCard() {
+    const navigate = useNavigate();
+    const navigateToViewDocumentPage = () => {
+        navigate("/viewdocumentpage");
+    }
+
     return (
-        <styled.Document>
+        <styled.Document onClick={navigateToViewDocumentPage}>
             {/* <styled.ValidIcon /> */}
             <styled.nameBox>
                 <span>Name</span>
