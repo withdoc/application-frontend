@@ -2,16 +2,15 @@ import styled from "styled-components";
 import back from "../../imgs/backbtn.svg";
 
 export const mainContainer = styled.div`
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    display: flex;
     background: #FFFFFF;
 `;
 
 export const header = styled.div`
     width: 100%;
-    height: 110px;
-    position: fixed;
+    height: 11%;
+    //position: fixed;
     background: #FFFFFF;
     display: flex;
     align-items: center;
@@ -80,9 +79,38 @@ export const btnDownload = styled.button`
     cursor: pointer;
 `
 
-
 export const viewContainer = styled.div`
     width: 100%;
-    height: 100%;
-    background: rgba(91, 99, 169, 0.1);
+    height: fit-content;
+    background-color:  #EFEFF6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 `;
+
+export const documentBox = styled.img`
+    width: fit-content;
+    height: fit-content;
+`
+export const viewBtnBox = styled.div`
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: flex-end;
+`
+
+export const btnMinus = styled.img`
+    width: 50px;
+    height: 50px;
+    margin-right: 1%;
+    cursor: pointer;
+`
+
+export const btnPlus = styled.img`
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+`
