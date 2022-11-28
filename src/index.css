@@ -44,3 +44,10 @@ code {
   font-weight: 900;
   src: url("fonts/Poppins-Medium.ttf");
 }
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/Poppins-SemiBold.ttf");
+}
