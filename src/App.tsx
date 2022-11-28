@@ -9,6 +9,7 @@ import LoginPage from "./pages/loginpage";
 import DocumentListPage from './pages/documentListPage';
 import DocumentUploadPage from './pages/documentUploadPage';
 import PersonalInfoPage from './pages/personalInfoPage';
+import ViewDocumentPage from './pages/viewDocumentPage';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -41,6 +42,8 @@ function App() {
         {/* loginpage */}
         <Route path='/personalinfopage' element={<PersonalInfoPage />} />
 
+        {/* viewdocumentpage */}
+        <Route path='/viewdocumentpage' element={<ViewDocumentPage />} />
       </Routes>
     </BrowserRouter>
   );
