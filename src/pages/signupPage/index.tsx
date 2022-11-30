@@ -7,6 +7,9 @@ function SignUpComponent() {
     const [password, setPassword] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [birth, setBirth] = useState<string>("");
+    const [address, setAddress] = useState<string>("");
+    const [gender, setGender] = useState<string>("");
+    const [nation, setNation] = useState<string>("");
 
         // new Date("2020-12-28").
         //
@@ -60,10 +63,15 @@ function SignUpComponent() {
                         <S.birthInputBox type="day" placeholder="Month" style={{marginLeft:'3%', marginRight: '3%'}}/>
                         <S.birthInputBox type="day" placeholder="Day"/>
                     </S.birthInputContainer>
-                    <S.inputTitle>Phone Number *</S.inputTitle>
-                    <S.inputBox type="number"/>
-                    <S.inputTitle>Recovery Email *</S.inputTitle>
-                    <S.inputBox type="email"/>
+                    <S.inputTitle>Address *</S.inputTitle>
+                    <S.inputBox type="address"/>
+                    <S.inputTitle>Gender *</S.inputTitle>
+                    <S.genderSelectBox value={gender}>
+                        <option value={"female"} key={"female"}>female</option>
+                        <option value={"male"} key={"male"}>male</option>
+                    </S.genderSelectBox>
+                    <S.inputTitle>Nation *</S.inputTitle>
+                    <S.inputBox type="nation"/>
                 </S.inputContainer>
                 <S.btnSignUp onClick={SignUp}>Sign Up</S.btnSignUp>
             </S.mainContent>

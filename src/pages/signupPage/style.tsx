@@ -113,3 +113,17 @@ export const btnSignUp = styled.button`
     text-shadow: 0px 5px 10px rgba(73, 90, 117, 0.222373);
 `;
 
+export const genderSelectBox = styled.select`
+    width: 100%;
+    height: 55px;
+    border: 1px solid #D8D8D8;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color: rgba(20, 36, 59, 0.5);
+    margin-top: 2%;
+    padding-left: 2%;
+`
