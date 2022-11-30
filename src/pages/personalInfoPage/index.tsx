@@ -9,26 +9,20 @@ const PersonalInfoPage = () => {
         setContent(true);
     };
 
-    const [value, setValue] = useState({
-        name: "",
-    });
+    const [emailValue, setEmailValue] = useState("test1@test.com");
+    
 
-    const onChangeHandler = (e:any) => {
-        setValue((prevState) => {
-            return { ...prevState, [e.target.name]: e.target.value };
-        });
-    };
-
-    const SelectComponent = () => {
-        return(
-            <>
-                <styled.InfoChangeInput />
-                <styled.SaveButton onClick={() => setContent(false)}>
-                    <span>저장</span>
-                </styled.SaveButton>
-            </>
-        )
-    }
+    // const SelectComponent = () => {
+    //     return(
+    //         <>
+    //             <styled.InfoChangeInput onChange={e => setEmailValue(e.target.value)}/>
+    //             <styled.SaveButton onClick={() => setContent(false)} >
+    //                 <span>저장</span>
+    //             </styled.SaveButton>
+    //         </>
+    //     )
+    // }
+    
 
     const showModal = () => {
         setisModal(true);
@@ -81,11 +75,20 @@ const PersonalInfoPage = () => {
                     <span>이메일 주소</span>
                     {content === false &&
                         <>
-                            <span>user1@naver.com</span>
+                            {/* <span>user1@naver.com</span> */}
+                            <span>{emailValue}</span>
                             <span onClick={handleClickButton}>수정</span>
                         </>
                     }
-                    {content && <SelectComponent />}
+                    {content &&
+                        <>
+                            <styled.InfoChangeInput onChange={e => setEmailValue(e.target.value)} />
+                            <styled.SaveButton onClick={() => setContent(false)} >
+                                <span>저장</span>
+                            </styled.SaveButton>
+                        </>
+                    }
+                    
                 </styled.EmailBox>
                 <styled.HrLine />
                 <styled.PasswordBox>
