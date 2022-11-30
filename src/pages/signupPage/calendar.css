@@ -1,0 +1,11 @@
+.react-calendar { 
+    width: 100%;
+    background-color: #fff;
+    color: #222;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins';
+    line-height: 40px;
+    margin-top: 2%;
+    font-size: 20px;
+   }

@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import * as S from "./style"
 import axios from 'axios';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './calendar.css';
 
 function SignUpComponent() {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [name, setName] = useState<string>("");
-    const [birth, setBirth] = useState<string>("");
+    const [birth, setBirth] = useState<Date>(new Date());
     const [address, setAddress] = useState<string>("");
     const [gender, setGender] = useState<string>("");
     const [nation, setNation] = useState<string>("");
@@ -57,12 +60,7 @@ function SignUpComponent() {
                     <S.inputTitle>Name *</S.inputTitle>
                     <S.inputBox type="name"/>
                     <S.inputTitle>Birth *</S.inputTitle>
-                    {/* todo: select type으로 변경*/}
-                    <S.birthInputContainer>
-                        <S.birthInputBox type="year" placeholder="Year"/>
-                        <S.birthInputBox type="day" placeholder="Month" style={{marginLeft:'3%', marginRight: '3%'}}/>
-                        <S.birthInputBox type="day" placeholder="Day"/>
-                    </S.birthInputContainer>
+                    <Calendar className="react-calendar"/>
                     <S.inputTitle>Address *</S.inputTitle>
                     <S.inputBox type="address"/>
                     <S.inputTitle>Gender *</S.inputTitle>
