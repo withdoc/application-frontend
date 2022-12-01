@@ -14,33 +14,38 @@ function SignUpComponent() {
     const [gender, setGender] = useState<string>("");
     const [nation, setNation] = useState<string>("");
 
+    
+    const [emailCheck, setEmailCheck] = useState<boolean>(true);
     const [pwCheck, setPwCheck] = useState<boolean>(true);
+    const [isSame, setIsSame] = useState<boolean>(true);
 
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
             case "email": setEmail(e.target.value); break;
             case "password": setPassword(e.target.value); break;
             case "repeatPassword": {
-                if (password !== e.target.value) setPwCheck(false); 
-                if (password === e.target.value) setPwCheck(true); 
+                password !== e.target.value ? setIsSame(false) : setIsSame(true); 
                 break;
             }
             
         }
     }
 
-    //const PwRepeatInput:any = useRef();
+    const EmailInput:any = useRef();
+    const PasswordInput:any = useRef();
     
+    // sign up 버튼 눌렀을 때  
     const SignUpCheck = () => {
-        /*if (password === repeatPassword) {
-            setPwCheck("true");
-            PwRepeatInput.value = password;
+        if (email === "") {
+            setEmailCheck(false);
+            EmailInput.current.focus();
         }
-        if (password !== repeatPassword) {
-            setPwCheck("false");   // 비밀번호 맞지 않으면 
-            PwRepeatInput.current.focus()   // repeat password 창으로 포커스 이동 
-        }*/
-
+        if (email !== "") setEmailCheck(true);
+        if (password === "") {
+            setPwCheck(false);
+            PasswordInput.current.focus();
+        }
+        if (password !== "") setPwCheck(true);
         // else SignUp();   // 모두 통과하면 
     }
 
@@ -78,12 +83,12 @@ function SignUpComponent() {
                     Sign Up
                 </S.signUpTitle>
                 <S.inputContainer>
-                    <S.inputTitle check={true}>Email *</S.inputTitle>
-                    <S.inputBox check={true} type="email" onChange={changeValue("email")}/>
-                    <S.inputTitle check={true}>Password *</S.inputTitle>
-                    <S.inputBox check={true} type="password" onChange={changeValue("password")}/>
-                    <S.inputTitle check={pwCheck}>Repeat Password *</S.inputTitle>
-                    <S.inputBox check={pwCheck} type="password" onChange={changeValue("repeatPassword")}/>
+                    <S.inputTitle check={emailCheck} >Email *</S.inputTitle>
+                    <S.inputBox check={emailCheck} ref={EmailInput} type="email" onChange={changeValue("email")}/>
+                    <S.inputTitle check={pwCheck}>Password *</S.inputTitle>
+                    <S.inputBox check={pwCheck} ref={PasswordInput} type="password" onChange={changeValue("password")}/>
+                    <S.inputTitle check={isSame}>Repeat Password *</S.inputTitle>
+                    <S.inputBox check={isSame} type="password" onChange={changeValue("repeatPassword")}/>
                     <S.inputTitle check={true}>Name *</S.inputTitle>
                     <S.inputBox check={true} type="name"/>
                     <S.inputTitle check={true}>Birth *</S.inputTitle>
