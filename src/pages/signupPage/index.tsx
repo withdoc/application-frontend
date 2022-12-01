@@ -16,9 +16,6 @@ function SignUpComponent() {
 
     const [pwCheck, setPwCheck] = useState<boolean>(true);
 
-        // new Date("2020-12-28").
-        //
-
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
             case "email": setEmail(e.target.value); break;
@@ -32,7 +29,6 @@ function SignUpComponent() {
         }
     }
 
-    
     //const PwRepeatInput:any = useRef();
     
     const SignUpCheck = () => {
