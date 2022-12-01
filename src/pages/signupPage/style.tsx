@@ -40,21 +40,23 @@ export const inputContainer = styled.div`
     flex-direction: column;
 `
 
-export const inputTitle = styled.div`
+export const inputTitle = styled.div<{check: boolean}>`
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
-    color: rgba(20, 36, 59, 0.35);
+    color: ${(props) =>
+    props.check === true ? "rgba(20, 36, 59, 0.35)" :  "rgba(237, 53, 53, 0.5)"};
     margin-top: 5%;
     margin-left: 2%;
 `
 
-export const inputBox = styled.input`
+export const inputBox = styled.input<{check: boolean}>`
     width: 100%;
     height: 45px;
-    border: 1px solid #D8D8D8;
+    border: ${(props) =>
+    props.check === true ? "1px solid #D8D8D8" : "1px solid #e04040"};
     border-radius: 10px;
     font-family: 'Poppins';
     font-style: normal;
@@ -64,6 +66,7 @@ export const inputBox = styled.input`
     color: rgba(20, 36, 59, 0.7);
     margin-top: 2%;
 `
+
 export const birthInputContainer = styled.div`
     display: flex;
     flex-direction: row;
@@ -113,3 +116,17 @@ export const btnSignUp = styled.button`
     text-shadow: 0px 5px 10px rgba(73, 90, 117, 0.222373);
 `;
 
+export const genderSelectBox = styled.select`
+    width: 100%;
+    height: 55px;
+    border: 1px solid #D8D8D8;
+    border-radius: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    color: rgba(20, 36, 59, 0.5);
+    margin-top: 2%;
+    padding-left: 2%;
+`
