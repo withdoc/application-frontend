@@ -5,6 +5,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
 import dayjs from 'dayjs';
+import { useNavigate } from "react-router";
 
 function SignUpComponent() {
     // parameter state
@@ -67,6 +68,11 @@ function SignUpComponent() {
         else SignUp();
     }
 
+    const navigate = useNavigate();
+    const navigateToLoginPage = () => {
+        navigate("/loginpage");
+    };
+
     const SignUp = () => {
         const response = axios.post(
             "http://15.164.231.10/user/signup",
@@ -88,6 +94,7 @@ function SignUpComponent() {
         )
         .then(function(response: any){
             console.log(JSON.stringify(response.data));
+            navigateToLoginPage();
         })
         .catch(function (error: any){
             console.log(error);
