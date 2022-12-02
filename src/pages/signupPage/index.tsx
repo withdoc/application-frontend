@@ -18,6 +18,7 @@ function SignUpComponent() {
     const [emailCheck, setEmailCheck] = useState<boolean>(true);
     const [pwCheck, setPwCheck] = useState<boolean>(true);
     const [isSame, setIsSame] = useState<boolean>(true);
+    const [nameCheck, setNameCheck] = useState<boolean>(true);
 
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
@@ -27,26 +28,29 @@ function SignUpComponent() {
                 password !== e.target.value ? setIsSame(false) : setIsSame(true); 
                 break;
             }
+            case "name": setName(e.target.value); break;
             
         }
     }
 
     const EmailInput:any = useRef();
     const PasswordInput:any = useRef();
+    const NameInput:any = useRef();
     
+    const moveFocus =  () => {
+        if (!emailCheck) EmailInput.current.focus();
+        else if (!pwCheck) PasswordInput.current.focus();
+        else if (!nameCheck) NameInput.current.focus();
+    }
+
     // sign up 버튼 눌렀을 때  
-    const SignUpCheck = () => {
-        if (email === "") {
-            setEmailCheck(false);
-            EmailInput.current.focus();
-        }
-        if (email !== "") setEmailCheck(true);
-        if (password === "") {
-            setPwCheck(false);
-            PasswordInput.current.focus();
-        }
-        if (password !== "") setPwCheck(true);
-        // else SignUp();   // 모두 통과하면 
+    const SignUpCheck = async() => {
+        email === "" ? setEmailCheck(false) : setEmailCheck(true);
+        password === "" ? setPwCheck(false) : setPwCheck(true);
+        name === "" ? setNameCheck(false) : setNameCheck(true);
+
+        moveFocus();   // todo: 동기처리 필요 
+        // else await SignUp();   // 모두 통과하면 
     }
 
     const SignUp = () => {
@@ -89,8 +93,8 @@ function SignUpComponent() {
                     <S.inputBox check={pwCheck} ref={PasswordInput} type="password" onChange={changeValue("password")}/>
                     <S.inputTitle check={isSame}>Repeat Password *</S.inputTitle>
                     <S.inputBox check={isSame} type="password" onChange={changeValue("repeatPassword")}/>
-                    <S.inputTitle check={true}>Name *</S.inputTitle>
-                    <S.inputBox check={true} type="name"/>
+                    <S.inputTitle check={nameCheck}>Name *</S.inputTitle>
+                    <S.inputBox check={nameCheck} ref={NameInput} type="name" onChange={changeValue("name")}/>
                     <S.inputTitle check={true}>Birth *</S.inputTitle>
                     <Calendar className="react-calendar"/>
                     <S.inputTitle check={true}>Address *</S.inputTitle>
