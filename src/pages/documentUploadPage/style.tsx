@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const mainContainer = styled.div`
     width: 100%;
-    height: 100vh;
+    height: fit-content;
     display: flex;
     //justify-content: center;
     //align-items: center;
@@ -11,7 +11,7 @@ export const mainContainer = styled.div`
 
 export const folderContainer = styled.div`
     width: 20%;
-    height: 100%;
+    height: 1500px;
     background: #102141;
     border-radius: 0 30px 30px 0;
     min-height: 100%;
@@ -70,6 +70,7 @@ export const uploadContainer = styled.div`
     min-width: 80%;
     align-items: center;
 `
+
 export const TitleBox = styled.div`
     width: 80%;
     height: 30%;
@@ -82,8 +83,72 @@ export const mainTitle = styled.div`
     font-size: 37px;
     line-height: 56px;
     color: rgba(20, 36, 59, 0.35);
-    margin-top: 2%;
+    margin-top: 5%;
 `;
+
+export const inputContainer = styled.div`
+    width: 100%;
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns: 700px 700px;
+	grid-template-rows: 150px 150px 150px;
+`
+
+export const inputBox = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`
+
+export const inputTitle = styled.div`
+    color: rgba(20, 36, 59, 0.35);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+`
+
+export const inputLine = styled.input`
+    width: 60%;
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid rgba(20, 36, 59, 0.35);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 20px;
+    line-height: 38px;
+    color: rgba(20, 36, 59, 0.5);
+    margin-top: 2%;
+`
+
+export const radioBox = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2%;
+`
+
+export const radioCheck = styled.input`
+    width: 25px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 50px;
+    line-height: 38px;
+    color: rgba(20, 36, 59, 0.5);
+    margin-right: 3%;
+    //margin-top: 2%;
+
+`
+export const radioLabel = styled.label`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 22px;
+    line-height: 38px;
+    color: rgba(20, 36, 59, 0.5);
+    margin-right: 8%;
+
+`
 
 export const currentFolderName = styled.div`
     font-family: 'Poppins-Bold';
@@ -103,6 +168,7 @@ export const uploadBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5%;
 `
 export const fileUploadImg = styled.img`
     width: 233px;
