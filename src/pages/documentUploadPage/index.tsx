@@ -5,7 +5,30 @@ import fileUpload from "../../imgs/fileUpload.svg";
 
 function DocumentUploadPage() {
     const [userName, setUserName] = useState<string>("userName");
-    const [currentFolder, setCurrentFolder] = useState<string>("basic/");
+    
+    const [docName, setDocName] = useState<string>("");
+    const [docSerialNum, setSerialNum] = useState<string>("");
+    const [docPublishedDate, setDocPublishedDate] = useState<Date>(new Date());
+    const [docExpiryDate, setDocExpiryDate] = useState<Date>(new Date());
+    const [docPublishOrg, setDocPublishOrg] = useState<string>("");
+    const [docType, setDocType] = useState<string>("");
+    const [docDetailSerialNum, setDocDetailSerialNum] = useState<string>("");
+
+    const changeValue = (name: string) => (e: any) => {
+        switch(name) {
+            case "docName": setDocName(e.target.value); break;
+            case "serialNum": setSerialNum(e.target.value); break;
+            case "docPublishedDate": setDocPublishedDate(e.target.value); break;
+            case "docExpiryDate": setDocExpiryDate(e.target.value); break;
+            case "docPublishOrg": setDocPublishOrg(e.target.value); break;
+            case "docType": setDocType(e.target.value); break;
+            case "docDetailSerialNum": setDocDetailSerialNum(e.target.value); break;
+        }
+    }
+
+    const documentUpload = () => {
+
+    }
 
     return (
         <>
@@ -22,34 +45,34 @@ function DocumentUploadPage() {
                     <S.inputContainer>
                         <S.inputBox>
                             <S.inputTitle>{"document Name *"}</S.inputTitle>
-                            <S.inputLine></S.inputLine>
+                            <S.inputLine onChange={changeValue("docName")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Serial Number *"}</S.inputTitle>
-                            <S.inputLine></S.inputLine>
+                            <S.inputLine onChange={changeValue("serialNum")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Published Date *"}</S.inputTitle>
-                            <S.inputLine></S.inputLine>
+                            <S.inputLine onChange={changeValue("docPublishedDate")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Expiry Date *"}</S.inputTitle>
-                            <S.inputLine></S.inputLine>
+                            <S.inputLine onChange={changeValue("docExpiryDate")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Publish Org *"}</S.inputTitle>
-                            <S.inputLine></S.inputLine>
+                            <S.inputLine onChange={changeValue("docPublishOrg")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Detail Serial Number *"}</S.inputTitle>
-                            <S.inputLine></S.inputLine>
+                            <S.inputLine onChange={changeValue("docDetailSerialNum")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Type *"}</S.inputTitle>
                             <S.radioBox>
-                                <S.radioCheck value="VISA" name="VISA" type="radio" /><S.radioLabel>VISA</S.radioLabel>
-                                <S.radioCheck value="PASSPORT" name="PASSPORT" type="radio" /><S.radioLabel>PASSPORT</S.radioLabel>
-                                <S.radioCheck value="DRIVERLICENSE" name="DRIVERLICENSE" type="radio" /><S.radioLabel>DRIVERLICENSE</S.radioLabel>
+                                <S.radioCheck checked={docType === "VISA"} value="VISA" type="radio" onChange={changeValue("docType")}/><S.radioLabel>VISA</S.radioLabel>
+                                <S.radioCheck checked={docType === "PASSPORT"} value="PASSPORT" type="radio" onChange={changeValue("docType")}/><S.radioLabel>PASSPORT</S.radioLabel>
+                                <S.radioCheck checked={docType === "DRIVERLICENSE"} value="DRIVERLICENSE" type="radio" onChange={changeValue("docType")}/><S.radioLabel>DRIVERLICENSE</S.radioLabel>
                             </S.radioBox>
                         </S.inputBox>
                     </S.inputContainer>
@@ -57,7 +80,7 @@ function DocumentUploadPage() {
                 <S.uploadBox>
                     <S.fileUploadImg src={fileUpload}/>
                     <S.uploadCommnet>{`문서를 업로드 하기 위해 파일을 끌어다 놓으세요 \n 또는`}</S.uploadCommnet>
-                    <S.btnUpload>{"파일 업로드"}</S.btnUpload>
+                    <S.btnUpload onClick={documentUpload}>{"파일 업로드"}</S.btnUpload>
                 </S.uploadBox>
             </S.uploadContainer>
         </S.mainContainer>
