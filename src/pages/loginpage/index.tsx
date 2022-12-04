@@ -65,7 +65,7 @@ function LoginComponent() {
                     <S.btnSignUp> Sign up </S.btnSignUp>
                 </S.btnContainer>
                 {/* <S.btnSignIn onClick={navigateToAnotherPage}>Sign in</S.btnSignIn> */}
-                <S.btnSignIn onClick={() => { isLogin(); }}>Sign in</S.btnSignIn>
+                <S.btnSignIn onClick={() => { isLogin(); navigateToAnotherPage(); }}>Sign in</S.btnSignIn>
             </S.mainContent>
         </S.mainContainer>
         </>
