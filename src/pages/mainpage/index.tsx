@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as styled from './styles';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 import DocumentCard from '../../components/DocumentCard';
 
@@ -32,6 +33,32 @@ function Mainpage() {
     const navigateToPersonalInfoPage = () => {
         navigate("/personalinfopage");
     }
+
+
+
+    useEffect(() => {
+        let token = localStorage.getItem('login-token');
+        const response = axios.get('http://15.164.231.10/document/all?email=admin@admin.com', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .then(function (response) {
+                // console.log(JSON.stringify(response.data));
+                let DocumentInfo = {
+                    docName : response.data[0].Record.docName,
+                    docExpiryDate : response.data[0].Record.docExpiryDate,
+                    docSerialNum : response.data[0].Record.docSerialNum,
+                    docPublishedOrg : response.data[0].Record.docPublishedOrg
+                }
+                // const documentInfos = 
+                console.log(response.data.length)
+                console.log(DocumentInfo);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [])
 
     const WithdrawalModal = () => {
         return(
