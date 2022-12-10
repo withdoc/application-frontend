@@ -44,7 +44,7 @@ function DocumentUploadPage() {
         setFileName(e.target.files[0].name);
     }
 
-    const documentWrite = async() => {
+    const documentWrite = () => {
         console.log("formDataAppend");
         Object.values(filelist).forEach((file) => fd.append("file", file));
         /*formdata append 확인*/
@@ -52,7 +52,7 @@ function DocumentUploadPage() {
             console.log(pair[0]+ ', ' + pair[1]); 
         }
 
-        /*await axios.post('http://15.164.231.10/document/upload', fd, {
+        axios.post('http://15.164.231.10/upload', fd, {
             headers: {
                 'accept': 'application/json',
                 "Content-Type": `multipart/form-data; `,
@@ -66,7 +66,7 @@ function DocumentUploadPage() {
         .catch((error) => {
             // 예외 처리
             console.log(error);
-        })*/
+        })
     }
 
     return (
