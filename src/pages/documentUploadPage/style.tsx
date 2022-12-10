@@ -205,17 +205,18 @@ export const inputFile = styled.input`
 `;
 
 export const uploadList = styled.div`
-    width: 78%;
+    width: 77%;
+    min-height: 50px;
     border: 1px solid rgba(20, 36, 59, 0.35);
-    border-radius: 25px;
+    border-radius: 18px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 5%;
-
+    justify-content: center;
+    padding-left: 3%;
+    margin-top: 3%;
     font-family: 'Poppins';
     font-style: normal;
-    font-size: 22px;
-    line-height: 42px;
-    padding-left: 2%;
+    font-size: 19px;
+    line-height: 35px;
 `

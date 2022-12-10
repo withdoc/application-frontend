@@ -15,6 +15,7 @@ function DocumentUploadPage() {
     const [docDetailSerialNum, setDocDetailSerialNum] = useState<string>("");
 
     const [filelist, setFileList] = useState<object>({});
+    const [fileName, setFileName] = useState<string>("");
 
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
@@ -29,16 +30,18 @@ function DocumentUploadPage() {
     }
 
     const fileInput:any = useRef();
-
+    
     const documentUpload = () => {
         fileInput.current.click();
     }
     
     const handleFileUpload = (e: any) => {
         setFileList(e.target.files[0]);
+        setFileName(e.target.files[0].name);
         console.log(e.target.files[0]);
         console.log(e.target.files[0].name);
         console.log(typeof e.target.files[0]);
+
     }
 
     return (
@@ -95,12 +98,7 @@ function DocumentUploadPage() {
                     <S.inputFile ref={fileInput} type="file" multiple={true} id="fileUpload" onChange={handleFileUpload} />
                 </S.uploadBox>
                 <S.uploadList>
-                {/*{filelist.map((file: any) => (
-                                <div>
-                                    {file.name}
-                                </div>
-                ))}*/}
-                
+                {fileName}
                 </S.uploadList>
             </S.uploadContainer>
         </S.mainContainer>
