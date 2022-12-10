@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import * as S from "./style"
 import profile from "../../imgs/bubbleProfile.svg";
 import fileUpload from "../../imgs/fileUpload.svg";
+import axios from "axios";
 
 function DocumentUploadPage() {
     const [userName, setUserName] = useState<string>("userName");
@@ -17,6 +18,8 @@ function DocumentUploadPage() {
     const [filelist, setFileList] = useState<object>({});
     const [fileName, setFileName] = useState<string>("");
 
+    const fd:any = new FormData();
+
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
             case "docName": setDocName(e.target.value); break;
@@ -27,6 +30,7 @@ function DocumentUploadPage() {
             case "docType": setDocType(e.target.value); break;
             case "docDetailSerialNum": setDocDetailSerialNum(e.target.value); break;
         }
+        
     }
 
     const fileInput:any = useRef();
@@ -36,12 +40,33 @@ function DocumentUploadPage() {
     }
     
     const handleFileUpload = (e: any) => {
-        setFileList(e.target.files[0]);
+        setFileList(e.target.files);
         setFileName(e.target.files[0].name);
-        console.log(e.target.files[0]);
-        console.log(e.target.files[0].name);
-        console.log(typeof e.target.files[0]);
+    }
 
+    const documentWrite = async() => {
+        console.log("formDataAppend");
+        Object.values(filelist).forEach((file) => fd.append("file", file));
+        /*formdata append 확인*/
+        for (var pair of fd.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+
+        /*await axios.post('http://15.164.231.10/document/upload', fd, {
+            headers: {
+                'accept': 'application/json',
+                "Content-Type": `multipart/form-data; `,
+            }
+        })
+        .then((response) => {
+            if(response.data){
+                console.log(response.data);
+        }
+        })
+        .catch((error) => {
+            // 예외 처리
+            console.log(error);
+        })*/
     }
 
     return (
@@ -100,6 +125,7 @@ function DocumentUploadPage() {
                 <S.uploadList>
                 {fileName}
                 </S.uploadList>
+                <S.btnUpload onClick={documentWrite}>{"FormDataTest"}</S.btnUpload>
             </S.uploadContainer>
         </S.mainContainer>
         </>
