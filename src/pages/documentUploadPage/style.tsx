@@ -4,14 +4,12 @@ export const mainContainer = styled.div`
     width: 100%;
     height: fit-content;
     display: flex;
-    //justify-content: center;
-    //align-items: center;
     background: #FFFFFF;
 `;
 
 export const folderContainer = styled.div`
-    width: 20%;
-    height: 1650px;
+    width: 19%;
+    height: 1450px;
     background: #102141;
     border-radius: 0 30px 30px 0;
     min-height: 100%;
@@ -30,7 +28,7 @@ export const profileImg = styled.img`
 export const userName = styled.div`
   white-space: pre-line;
   font-weight: 700;
-  font-size: 27px;
+  font-size: 25px;
   font-family: 'Poppins-Bold';
   line-height: 40px;
   display: flex;
@@ -51,7 +49,7 @@ export const line = styled.div`
 export const forderName = styled.div`
   white-space: pre-line;
   font-weight: 700;
-  font-size: 27px;
+  font-size: 25px;
   font-family: 'Poppins-Bold';
   line-height: 40px;
   display: flex;
@@ -88,10 +86,10 @@ export const mainTitle = styled.div`
 
 export const inputContainer = styled.div`
     width: 100%;
-    margin-top: 10%;
+    margin-top: 8%;
     display: grid;
-    grid-template-columns: 700px 700px;
-	grid-template-rows: 150px 150px 150px;
+    grid-template-columns: 510px 510px;
+	grid-template-rows: 135px 135px 135px 135px;
 `
 
 export const inputBox = styled.div`
@@ -110,7 +108,7 @@ export const inputTitle = styled.div`
 `
 
 export const inputLine = styled.input`
-    width: 60%;
+    width: 67%;
     height: 45px;
     border: none;
     border-bottom: 1px solid rgba(20, 36, 59, 0.35);
@@ -126,38 +124,20 @@ export const radioBox = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin-top: 2%;
+    margin-top: 3%;
 `
 
 export const radioCheck = styled.input`
     width: 25px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-size: 50px;
-    line-height: 38px;
-    color: rgba(20, 36, 59, 0.5);
     margin-right: 3%;
-    //margin-top: 2%;
-
 `
 export const radioLabel = styled.label`
     font-family: 'Poppins';
     font-style: normal;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 38px;
     color: rgba(20, 36, 59, 0.5);
     margin-right: 8%;
-
-`
-
-export const currentFolderName = styled.div`
-    font-family: 'Poppins-Bold';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 25px;
-    line-height: 38px;
-    color: rgba(20, 36, 59, 0.35);
-    margin-top: 12%;
 `
 
 export const uploadBox = styled.div`
@@ -172,17 +152,17 @@ export const uploadBox = styled.div`
 `
 
 export const fileUploadImg = styled.img`
-    width: 233px;
-    height: 225px;
+    width: 220px;
+    height: 220px;
     margin-top: 10%;
 `
 
 export const uploadCommnet = styled.div`
     white-space: pre-line;
-    font-family: 'Poppins';
+    font-family: 'Poppins-Bold';
     font-style: normal;
     font-weight: 700;
-    font-size: 27px;
+    font-size: 24px;
     line-height: 40px;
     text-align: center;
     color: rgba(20, 36, 59, 0.35);
@@ -190,14 +170,15 @@ export const uploadCommnet = styled.div`
 `;
 
 export const btnUpload = styled.button`
-    width: 277px;
-    height: 75px;
+    width: 240px;
+    height: 65px;
     background: #102141;
-    border-radius: 30px;
+    border: none;
+    border-radius: 25px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 23px;
     line-height: 42px;
     text-align: center;
     color: #FFFFFF;
@@ -205,7 +186,6 @@ export const btnUpload = styled.button`
     cursor: pointer;
     margin-bottom: 4%;
 `;
-
 
 export const inputFile = styled.input`
     width: 277px;
