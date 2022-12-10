@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./style"
 import profile from "../../imgs/bubbleProfile.svg";
 import fileUpload from "../../imgs/fileUpload.svg";
@@ -14,6 +14,8 @@ function DocumentUploadPage() {
     const [docType, setDocType] = useState<string>("");
     const [docDetailSerialNum, setDocDetailSerialNum] = useState<string>("");
 
+    const [filelist, setFileList] = useState<object>({});
+
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
             case "docName": setDocName(e.target.value); break;
@@ -26,8 +28,17 @@ function DocumentUploadPage() {
         }
     }
 
-    const documentUpload = () => {
+    const fileInput:any = useRef();
 
+    const documentUpload = () => {
+        fileInput.current.click();
+    }
+    
+    const handleFileUpload = (e: any) => {
+        setFileList(e.target.files[0]);
+        console.log(e.target.files[0]);
+        console.log(e.target.files[0].name);
+        console.log(typeof e.target.files[0]);
     }
 
     return (
@@ -81,7 +92,16 @@ function DocumentUploadPage() {
                     <S.fileUploadImg src={fileUpload}/>
                     <S.uploadCommnet>{`문서를 업로드 하기 위해 파일을 끌어다 놓으세요 \n 또는`}</S.uploadCommnet>
                     <S.btnUpload onClick={documentUpload}>{"파일 업로드"}</S.btnUpload>
+                    <S.inputFile ref={fileInput} type="file" multiple={true} id="fileUpload" onChange={handleFileUpload} />
                 </S.uploadBox>
+                <S.uploadList>
+                {/*{filelist.map((file: any) => (
+                                <div>
+                                    {file.name}
+                                </div>
+                ))}*/}
+                
+                </S.uploadList>
             </S.uploadContainer>
         </S.mainContainer>
         </>

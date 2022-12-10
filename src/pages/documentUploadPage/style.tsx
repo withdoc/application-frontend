@@ -11,7 +11,7 @@ export const mainContainer = styled.div`
 
 export const folderContainer = styled.div`
     width: 20%;
-    height: 1500px;
+    height: 1650px;
     background: #102141;
     border-radius: 0 30px 30px 0;
     min-height: 100%;
@@ -162,7 +162,7 @@ export const currentFolderName = styled.div`
 
 export const uploadBox = styled.div`
     width: 80%;
-    height: 63%;
+    height: 80%;
     background: rgba(91, 99, 169, 0.1);
     border-radius: 25px;
     display: flex;
@@ -170,6 +170,7 @@ export const uploadBox = styled.div`
     align-items: center;
     margin-top: 5%;
 `
+
 export const fileUploadImg = styled.img`
     width: 233px;
     height: 225px;
@@ -202,4 +203,39 @@ export const btnUpload = styled.button`
     color: #FFFFFF;
     margin-top: 2%;
     cursor: pointer;
+    margin-bottom: 4%;
 `;
+
+
+export const inputFile = styled.input`
+    width: 277px;
+    height: 75px;
+    background: #102141;
+    border-radius: 30px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 42px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 2%;
+    cursor: pointer;
+    display: none;
+`;
+
+export const uploadList = styled.div`
+    width: 78%;
+    border: 1px solid rgba(20, 36, 59, 0.35);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5%;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 22px;
+    line-height: 42px;
+    padding-left: 2%;
+`
