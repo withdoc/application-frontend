@@ -5,8 +5,6 @@ import fileUpload from "../../imgs/fileUpload.svg";
 import axios from "axios";
 
 function DocumentUploadPage() {
-    const [userName, setUserName] = useState<string>("userName");
-    
     const [docName, setDocName] = useState<string>("");
     const [docSerialNum, setSerialNum] = useState<string>("");
     const [docPublishedDate, setDocPublishedDate] = useState<Date>(new Date());
@@ -30,7 +28,6 @@ function DocumentUploadPage() {
             case "docType": setDocType(e.target.value); break;
             case "docDetailSerialNum": setDocDetailSerialNum(e.target.value); break;
         }
-        
     }
 
     /* btnFileUpload click -> documentUpload() -> handleFileUpload() */
@@ -41,11 +38,44 @@ function DocumentUploadPage() {
     }
     
     const handleFileUpload = (e: any) => {
-        setFileList(e.target.files);
-        setFileName(e.target.files[0].name);
+        if (e.target.files) {
+            setFileList(e.target.files);
+            setFileName(e.target.files[0].name);
+        }
     }
 
-    const documentPost = () => {
+    const documentCreate = (fileHash: string) => {
+        console.log("documentCreate");
+
+
+        const response = axios.post(
+            "http://15.164.231.10/document",
+            {
+                "docName": docName,
+                "docSerialNum": docSerialNum,
+                "docPublishedDate": docPublishedDate,
+                "docExpiryDate": docExpiryDate,
+                "docPublishOrg": docPublishOrg,
+                "docType": docType,
+                "docDetailSerialNum": docDetailSerialNum,
+                //"fileId": fileHash
+            },
+            {
+                headers: {
+                    'accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
+        .then(function(response: any){
+            console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error: any){
+            console.log(error);
+        })
+    }
+
+    const FormDataPost = () => {
         console.log("formDataAppend");
         Object.values(filelist).forEach((file) => fd.append("file", file));
         /*formdata append 확인*/
@@ -61,7 +91,8 @@ function DocumentUploadPage() {
         .then((response) => {
             if(response.data){
                 console.log(response.data);
-        }
+                documentCreate(response.data["hash"]);
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -73,7 +104,7 @@ function DocumentUploadPage() {
         <S.mainContainer>
             <S.folderContainer>
                 <S.profileImg src={profile}/>  
-                <S.userName>{userName}</S.userName> 
+                <S.userName>{"userName"}</S.userName> 
                 <S.line/>
                 <S.forderName>All</S.forderName>
             </S.folderContainer>
@@ -125,7 +156,7 @@ function DocumentUploadPage() {
                     <S.uploadNameBox>
                         <S.uploadName>{fileName}</S.uploadName>
                     </S.uploadNameBox>
-                    {fileName ? <S.btnFilePost onClick={documentPost}>{"upload 🚀"}</S.btnFilePost> : null}
+                    {fileName ? <S.btnFilePost onClick={FormDataPost}>{"upload 🚀"}</S.btnFilePost> : null}
                 </S.fileListContainer>
             </S.uploadContainer>
         </S.mainContainer>
