@@ -7,10 +7,10 @@ import axios from "axios";
 function DocumentUploadPage() {
     const [docName, setDocName] = useState<string>("");
     const [docSerialNum, setSerialNum] = useState<string>("");
-    const [docPublishedDate, setDocPublishedDate] = useState<Date>(new Date());
-    const [docExpiryDate, setDocExpiryDate] = useState<Date>(new Date());
+    const [docPublishedDate, setDocPublishedDate] = useState<string>("");
+    const [docExpiryDate, setDocExpiryDate] = useState<string>("");
     const [docPublishOrg, setDocPublishOrg] = useState<string>("");
-    const [docType, setDocType] = useState<string>("");
+    const [docType, setDocType] = useState<string>("VISA");
     const [docDetailSerialNum, setDocDetailSerialNum] = useState<string>("");
 
     const [filelist, setFileList] = useState<object>({});
@@ -77,25 +77,40 @@ function DocumentUploadPage() {
         })
     }
 
+    const nameInput:any = useRef();
+    const SNumInput:any = useRef();
+    const publishDateInput:any = useRef();
+    const expiryDateInput:any = useRef();
+    const publishOrgInput:any = useRef();
+    const detailSNumInput:any = useRef();
+
+    /* upload 🚀 button click */
     const FormDataPost = () => {
         console.log("formDataAppend");
-        Object.values(filelist).forEach((file) => fd.append("file", file));
+        // focus 이동  
+        if (docName === "") nameInput.current.focus();
+        else if (docSerialNum === "") SNumInput.current.focus();
+        else if (docPublishedDate === "") publishDateInput.current.focus();
+        else if (docExpiryDate === "") expiryDateInput.current.focus();
+        else if (docPublishOrg === "") publishOrgInput.current.focus();
+        else if (docDetailSerialNum === "") detailSNumInput.current.focus();
+        else {
+            Object.values(filelist).forEach((file) => fd.append("file", file));
         
-        axios.post('http://15.164.231.10/upload', fd, {
-            headers: {
-                'accept': 'application/json',
-                "Content-Type": `multipart/form-data; `,
-            }
-        })
-        .then((response) => {
-            if(response.data){
-                console.log(response.data);
-                documentCreate(response.data["hash"]);
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+            axios.post('http://15.164.231.10/upload', fd, {
+                headers: {
+                    'accept': 'application/json',
+                    "Content-Type": `multipart/form-data; `,
+                }
+            })
+            .then((response) => {
+                if(response.data){
+                    console.log(response.data);
+                    documentCreate(response.data["hash"]);
+                }
+            })
+            .catch((error) => { console.log(error);})
+        }
     }
 
     return (
@@ -112,33 +127,33 @@ function DocumentUploadPage() {
                     <S.mainTitle>{"문서 업로드 📄"}</S.mainTitle>
                     <S.inputContainer>
                         <S.inputBox>
-                            <S.inputTitle>{"document Name *"}</S.inputTitle>
-                            <S.inputLine onChange={changeValue("docName")}></S.inputLine>
+                            <S.inputTitle>{"document Name "}</S.inputTitle>
+                            <S.inputLine ref={nameInput} onChange={changeValue("docName")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
-                            <S.inputTitle>{"document Serial Number *"}</S.inputTitle>
-                            <S.inputLine onChange={changeValue("serialNum")}></S.inputLine>
+                            <S.inputTitle>{"document Serial Number "}</S.inputTitle>
+                            <S.inputLine ref={SNumInput} onChange={changeValue("serialNum")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
-                            <S.inputTitle>{"document Published Date *"}</S.inputTitle>
-                            <S.inputLine onChange={changeValue("docPublishedDate")}></S.inputLine>
+                            <S.inputTitle>{"document Published Date (YY/MM/DD)"}</S.inputTitle>
+                            <S.inputLine ref={publishDateInput} onChange={changeValue("docPublishedDate")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
-                            <S.inputTitle>{"document Expiry Date *"}</S.inputTitle>
-                            <S.inputLine onChange={changeValue("docExpiryDate")}></S.inputLine>
+                            <S.inputTitle>{"document Expiry Date (YY/MM/DD)"}</S.inputTitle>
+                            <S.inputLine ref={expiryDateInput} onChange={changeValue("docExpiryDate")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
-                            <S.inputTitle>{"document Publish Org *"}</S.inputTitle>
-                            <S.inputLine onChange={changeValue("docPublishOrg")}></S.inputLine>
+                            <S.inputTitle>{"document Publish Org "}</S.inputTitle>
+                            <S.inputLine ref={publishOrgInput} onChange={changeValue("docPublishOrg")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
-                            <S.inputTitle>{"document Detail Serial Number *"}</S.inputTitle>
-                            <S.inputLine onChange={changeValue("docDetailSerialNum")}></S.inputLine>
+                            <S.inputTitle>{"document Detail Serial Number"}</S.inputTitle>
+                            <S.inputLine ref={detailSNumInput} onChange={changeValue("docDetailSerialNum")}></S.inputLine>
                         </S.inputBox>
                         <S.inputBox>
                             <S.inputTitle>{"document Type *"}</S.inputTitle>
                             <S.radioBox>
-                                <S.radioCheck checked={docType === "VISA"} value="VISA" type="radio" onChange={changeValue("docType")}/><S.radioLabel>VISA</S.radioLabel>
+                                <S.radioCheck checked={docType === "VISA"} defaultChecked={true} value="VISA" type="radio" onChange={changeValue("docType")}/><S.radioLabel>VISA</S.radioLabel>
                                 <S.radioCheck checked={docType === "PASSPORT"} value="PASSPORT" type="radio" onChange={changeValue("docType")}/><S.radioLabel>PASSPORT</S.radioLabel>
                                 <S.radioCheck checked={docType === "DRIVERLICENSE"} value="DRIVERLICENSE" type="radio" onChange={changeValue("docType")}/><S.radioLabel>DRIVERLICENSE</S.radioLabel>
                             </S.radioBox>
