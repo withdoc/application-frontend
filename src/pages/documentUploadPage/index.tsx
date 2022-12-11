@@ -45,10 +45,8 @@ function DocumentUploadPage() {
     }
 
     const documentCreate = (fileHash: string) => {
-        console.log("documentCreate");
-
         var token = localStorage.getItem("login-token");
-        console.log("token", token);
+        
         const response = axios.post(
             "http://15.164.231.10/document",
             {
@@ -86,7 +84,6 @@ function DocumentUploadPage() {
 
     /* upload 🚀 button click */
     const FormDataPost = () => {
-        console.log("formDataAppend");
         // focus 이동  
         if (docName === "") nameInput.current.focus();
         else if (docSerialNum === "") SNumInput.current.focus();
@@ -153,7 +150,7 @@ function DocumentUploadPage() {
                         <S.inputBox>
                             <S.inputTitle>{"document Type *"}</S.inputTitle>
                             <S.radioBox>
-                                <S.radioCheck checked={docType === "VISA"} defaultChecked={true} value="VISA" type="radio" onChange={changeValue("docType")}/><S.radioLabel>VISA</S.radioLabel>
+                                <S.radioCheck checked={docType === "VISA"} value="VISA" type="radio" onChange={changeValue("docType")}/><S.radioLabel>VISA</S.radioLabel>
                                 <S.radioCheck checked={docType === "PASSPORT"} value="PASSPORT" type="radio" onChange={changeValue("docType")}/><S.radioLabel>PASSPORT</S.radioLabel>
                                 <S.radioCheck checked={docType === "DRIVERLICENSE"} value="DRIVERLICENSE" type="radio" onChange={changeValue("docType")}/><S.radioLabel>DRIVERLICENSE</S.radioLabel>
                             </S.radioBox>
