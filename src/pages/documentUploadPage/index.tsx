@@ -47,7 +47,8 @@ function DocumentUploadPage() {
     const documentCreate = (fileHash: string) => {
         console.log("documentCreate");
 
-
+        var token = localStorage.getItem("login-token");
+        console.log("token", token);
         const response = axios.post(
             "http://15.164.231.10/document",
             {
@@ -58,12 +59,13 @@ function DocumentUploadPage() {
                 "docPublishOrg": docPublishOrg,
                 "docType": docType,
                 "docDetailSerialNum": docDetailSerialNum,
-                //"fileId": fileHash
+                "fileId": fileHash
             },
             {
                 headers: {
                     'accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`
                 }
             }
         )
@@ -78,10 +80,7 @@ function DocumentUploadPage() {
     const FormDataPost = () => {
         console.log("formDataAppend");
         Object.values(filelist).forEach((file) => fd.append("file", file));
-        /*formdata append 확인*/
-        for (var pair of fd.entries()) {
-            console.log(pair[0]+ ', ' + pair[1]); 
-        }
+        
         axios.post('http://15.164.231.10/upload', fd, {
             headers: {
                 'accept': 'application/json',
