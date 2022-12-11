@@ -169,7 +169,7 @@ export const uploadCommnet = styled.div`
     margin-top: 5%;
 `;
 
-export const btnUpload = styled.button`
+export const btnFileUpload = styled.button`
     width: 240px;
     height: 65px;
     background: #102141;
@@ -204,19 +204,43 @@ export const inputFile = styled.input`
     display: none;
 `;
 
-export const uploadList = styled.div`
-    width: 77%;
+export const fileListContainer = styled.div`
+    width: 80%;
     min-height: 50px;
     border: 1px solid rgba(20, 36, 59, 0.35);
     border-radius: 18px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding-left: 3%;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
     margin-top: 3%;
     font-family: 'Poppins';
     font-style: normal;
     font-size: 19px;
     line-height: 35px;
 `
+
+export const uploadNameBox = styled.div`
+    width: 80%;
+    flex-direction: row;
+    justify-content: flex-start;
+`
+
+export const uploadName = styled.div`
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 19px;
+`
+
+export const btnFilePost = styled.button`
+    width: 120px; 
+    background: none;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    color: #102141;
+    cursor: pointer;
+    margin-right: 3%;
+`;

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import * as S from "./style"
 import profile from "../../imgs/bubbleProfile.svg";
 import fileUpload from "../../imgs/fileUpload.svg";
+import axios from "axios";
 
 function DocumentUploadPage() {
     const [userName, setUserName] = useState<string>("userName");
@@ -17,6 +18,8 @@ function DocumentUploadPage() {
     const [filelist, setFileList] = useState<object>({});
     const [fileName, setFileName] = useState<string>("");
 
+    const fd:any = new FormData();
+
     const changeValue = (name: string) => (e: any) => {
         switch(name) {
             case "docName": setDocName(e.target.value); break;
@@ -27,21 +30,42 @@ function DocumentUploadPage() {
             case "docType": setDocType(e.target.value); break;
             case "docDetailSerialNum": setDocDetailSerialNum(e.target.value); break;
         }
+        
     }
 
+    /* btnFileUpload click -> documentUpload() -> handleFileUpload() */
     const fileInput:any = useRef();
-    
+
     const documentUpload = () => {
         fileInput.current.click();
     }
     
     const handleFileUpload = (e: any) => {
-        setFileList(e.target.files[0]);
+        setFileList(e.target.files);
         setFileName(e.target.files[0].name);
-        console.log(e.target.files[0]);
-        console.log(e.target.files[0].name);
-        console.log(typeof e.target.files[0]);
+    }
 
+    const documentPost = () => {
+        console.log("formDataAppend");
+        Object.values(filelist).forEach((file) => fd.append("file", file));
+        /*formdata append 확인*/
+        for (var pair of fd.entries()) {
+            console.log(pair[0]+ ', ' + pair[1]); 
+        }
+        axios.post('http://15.164.231.10/upload', fd, {
+            headers: {
+                'accept': 'application/json',
+                "Content-Type": `multipart/form-data; `,
+            }
+        })
+        .then((response) => {
+            if(response.data){
+                console.log(response.data);
+        }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 
     return (
@@ -94,12 +118,15 @@ function DocumentUploadPage() {
                 <S.uploadBox>
                     <S.fileUploadImg src={fileUpload}/>
                     <S.uploadCommnet>{`문서를 업로드 하기 위해 파일을 끌어다 놓으세요 \n 또는`}</S.uploadCommnet>
-                    <S.btnUpload onClick={documentUpload}>{"파일 업로드"}</S.btnUpload>
+                    <S.btnFileUpload onClick={documentUpload}>{"파일 업로드"}</S.btnFileUpload>
                     <S.inputFile ref={fileInput} type="file" multiple={true} id="fileUpload" onChange={handleFileUpload} />
                 </S.uploadBox>
-                <S.uploadList>
-                {fileName}
-                </S.uploadList>
+                <S.fileListContainer>
+                    <S.uploadNameBox>
+                        <S.uploadName>{fileName}</S.uploadName>
+                    </S.uploadNameBox>
+                    {fileName ? <S.btnFilePost onClick={documentPost}>{"upload 🚀"}</S.btnFilePost> : null}
+                </S.fileListContainer>
             </S.uploadContainer>
         </S.mainContainer>
         </>
