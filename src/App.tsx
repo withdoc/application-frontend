@@ -43,7 +43,7 @@ function App() {
         <Route path='/personalinfopage' element={<PersonalInfoPage />} />
 
         {/* viewdocumentpage */}
-        <Route path='/viewdocumentpage' element={<ViewDocumentPage />} />
+        <Route path='/viewdocumentpage/:id' element={<ViewDocumentPage />} />
       </Routes>
     </BrowserRouter>
   );
