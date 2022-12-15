@@ -9,6 +9,7 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.65",
     "@types/react-dom": "^18.0.6",
+    "@types/react-radio-group": "^3.0.4",
     "axios": "^1.2.0",
     "dayjs": "^1.11.6",
     "hoist-non-react-statics": "^3.3.2",
@@ -16,7 +17,11 @@
     "react": "^18.2.0",
     "react-calendar": "^4.0.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "react-pdf": "^6.2.0",
+=======
+    "react-radio-group": "^3.0.3",
+>>>>>>> master
     "react-router": "^6.4.2",
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
@@ -55,5 +60,6 @@
     "@types/react-router": "^5.1.19",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.26"
-  }
+  },
+  "proxy": "http://15.164.231.10"
 }

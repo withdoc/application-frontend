@@ -2055,6 +2055,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-radio-group@^3.0.4":
+  "integrity" "sha512-WBjF2EDIgk5LRylOf045INh9nhnM3nq8+Z5wICd9hAlw2FY+GrKfX5CHUxG7XMR8hUB6jDboIOu5j3ukn9f2DQ=="
+  "resolved" "https://registry.npmjs.org/@types/react-radio-group/-/react-radio-group-3.0.4.tgz"
+  "version" "3.0.4"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-router-dom@^5.3.3":
   "integrity" "sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw=="
   "resolved" "https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.3.3.tgz"
@@ -7378,7 +7385,11 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
+<<<<<<< HEAD
 "prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.8.1":
+=======
+"prop-types@^15.5.8", "prop-types@^15.6.0", "prop-types@^15.8.1":
+>>>>>>> master
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -7518,7 +7529,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.8.0", "react-dom@>=16.8":
+"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.8.0", "react-dom@>=15.5.4", "react-dom@>=16.8":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -7551,6 +7562,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   "version" "18.2.0"
 
+<<<<<<< HEAD
 "react-pdf@^6.2.0":
   "integrity" "sha512-FKUoUKKxoIipIbRHzXQZui1j+f1QcEuFuVL03qI1GFDm0jC4eUrMyOCpPR98lY7+rsCswPn1rjfKd+8k9PrZmQ=="
   "resolved" "https://registry.npmjs.org/react-pdf/-/react-pdf-6.2.0.tgz"
@@ -7565,6 +7577,14 @@
     "prop-types" "^15.6.2"
     "tiny-invariant" "^1.0.0"
     "tiny-warning" "^1.0.0"
+=======
+"react-radio-group@^3.0.3":
+  "integrity" "sha512-MUNRRjZqQ2y+1K6rBuH0zO+gLVmCnWIcc5GnNwr9WNoUwZ9FUAKJ1UfsKXwYS93whR6/qrZKoVgiOltRkbzezw=="
+  "resolved" "https://registry.npmjs.org/react-radio-group/-/react-radio-group-3.0.3.tgz"
+  "version" "3.0.3"
+  dependencies:
+    "prop-types" "^15.5.8"
+>>>>>>> master
 
 "react-refresh@^0.11.0", "react-refresh@>=0.10.0 <1.0.0":
   "integrity" "sha512-F27qZr8uUqwhWZboondsPx8tnC3Ct3SxZA3V5WyEvujRyyNv0VYPhoBg1gZ8/MV5tubQp76Trw8lTv9hzRBa+A=="
@@ -7641,7 +7661,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=16.13.1", "react@>=16.8":
+"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=0.14.0", "react@>=16.13.1", "react@>=16.8":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
