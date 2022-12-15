@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { Document, Page } from 'react-pdf';
 import * as styled from './styles';
-import { useNavigate } from 'react-router';
+import { Route, useNavigate, Router } from 'react-router';
 import axios from 'axios';
+
+
 
 // import DocumentCard from '../../components/DocumentCard';
 
 
 
 function Mainpage() {
-    const [data, setData] = useState<{ Record: { docExpiryDate: string, docName: string, docSerialNum: string, docPublishedOrg: string } }[]>([])
+    const [data, setData] = useState<{ Record: { docExpiryDate: string, docName: string, docSerialNum: string, docPublishedOrg: string, id: string } }[]>([])
     const [isSidebarModal, setisSidebarModal] = useState(false);
     const [isWithdrawalModal, setisWithdrawalModal] = useState(false);
 
@@ -39,13 +42,13 @@ function Mainpage() {
 
     useEffect(() => {
         let token = localStorage.getItem('login-token');
-        const response = axios.get<{ Record: { docExpiryDate: string, docName: string, docSerialNum: string, docPublishedOrg: string } }[]>('http://15.164.231.10/document/all?email=admin@admin.com', {
+        const response = axios.get<{ Record: { docExpiryDate: string, docName: string, docSerialNum: string, docPublishedOrg: string, id: string } }[]>('http://15.164.231.10/document/all?email=admin@admin.com', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
             .then(function (response) {
-                // console.log(JSON.stringify(response.data));
+                console.log(JSON.stringify(response.data));
                 function ListItem(props: any) {
                     const value = props.value;
                     return (
@@ -68,10 +71,11 @@ function Mainpage() {
                 let arr = [];
                 for (var i = 0; i < numOfDocuments; i++) {
                     let DocumentInfo = {
-                        // docName: response.data[i].Record.docName,
+                        docKey: response.data[i].Record.id,
+                        docName: response.data[i].Record.docName,
                         docExpiryDate: response.data[i].Record.docExpiryDate,
-                        // docSerialNum: response.data[i].Record.docSerialNum,
-                        // docPublishedOrg: response.data[i].Record.docPublishedOrg
+                        docSerialNum: response.data[i].Record.docSerialNum,
+                        docPublishedOrg: response.data[i].Record.docPublishedOrg
                     }
                     arr[i] = DocumentInfo;
                 }
@@ -82,6 +86,8 @@ function Mainpage() {
                 console.log(error);
             });
     }, [])
+
+
 
     const WithdrawalModal = () => {
         return (
@@ -128,10 +134,10 @@ function Mainpage() {
         )
     }
 
-    const DocumentCard: React.FC<{ docExpiryDate: string, docName: string, docSerialNum: string, docPublishedOrg: string }> = ({ docExpiryDate, docName, docSerialNum, docPublishedOrg }) => {
+    const DocumentCard: React.FC<{ docExpiryDate: string, docName: string, docSerialNum: string, docPublishedOrg: string, docKey: string }> = ({ docExpiryDate, docName, docSerialNum, docPublishedOrg, docKey }) => {
         const navigate = useNavigate();
         const navigateToViewDocumentPage = () => {
-            navigate("/viewdocumentpage");
+            navigate(`/viewdocumentpage/${docKey}`);
         }
 
         return (
@@ -177,7 +183,7 @@ function Mainpage() {
                     <styled.AddDocument>
                         <styled.AddButton onClick={navigateToDocumentUploadPage} />
                     </styled.AddDocument>
-                    {data.map(item => <DocumentCard docExpiryDate={item.Record.docExpiryDate} docName={item.Record.docName} docPublishedOrg={item.Record.docPublishedOrg} docSerialNum={item.Record.docExpiryDate}/>)}
+                    {data.map(item => <DocumentCard docExpiryDate={item.Record.docExpiryDate} docName={item.Record.docName} docPublishedOrg={item.Record.docPublishedOrg} docSerialNum={item.Record.docSerialNum} docKey={item.Record.id} />)}
                 </styled.DocumentList>
             </styled.MainBox>
         </styled.Container>
